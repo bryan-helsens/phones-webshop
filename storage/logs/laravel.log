@@ -3950,3 +3950,20 @@
 #30 /home/vagrant/code/laravel/webshop/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #31 {main}
 "} 
+[2021-05-11 16:35:41] local.ERROR: include(E:\SE\Semester 4\Web and Mobile Technology\Project-server\Heroku-Laravel\vendor\composer/../srmklive/paypal/src/Providers/PayPalServiceProvider.php): failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\composer/../srmklive/paypal/src/Providers/PayPalServiceProvider.php): failed to open stream: No such file or directory at E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\composer\\ClassLoader.php:444)
+[stacktrace]
+#0 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\composer\\ClassLoader.php(444): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(E:\\\\SE\\\\S...', 'E:\\\\SE\\\\Semester ...', 444, Array)
+#1 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\composer\\ClassLoader.php(444): include()
+#2 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\composer\\ClassLoader.php(322): Composer\\Autoload\\includeFile('E:\\\\SE\\\\Semester ...')
+#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('Srmklive\\\\PayPal...')
+#4 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(208): spl_autoload_call('Srmklive\\\\PayPal...')
+#5 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(144): Illuminate\\Foundation\\ProviderRepository->createProvider('Srmklive\\\\PayPal...')
+#6 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php(61): Illuminate\\Foundation\\ProviderRepository->compileManifest(Array)
+#7 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(649): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#8 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#9 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#10 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#11 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#12 E:\\SE\\Semester 4\\Web and Mobile Technology\\Project-server\\Heroku-Laravel\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 {main}
+"} 
