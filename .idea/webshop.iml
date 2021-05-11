@@ -177,9 +177,6 @@
           <root url="file://$MODULE_DIR$/vendor/omnipay/common" />
           <root url="file://$MODULE_DIR$/vendor/omnipay/paypal" />
           <root url="file://$MODULE_DIR$/vendor/opis/closure" />
-          <root url="file://$MODULE_DIR$/vendor/paypal/paypal-checkout-sdk" />
-          <root url="file://$MODULE_DIR$/vendor/paypal/paypalhttp" />
-          <root url="file://$MODULE_DIR$/vendor/paypal/rest-api-sdk-php" />
           <root url="file://$MODULE_DIR$/vendor/phar-io/manifest" />
           <root url="file://$MODULE_DIR$/vendor/phar-io/version" />
           <root url="file://$MODULE_DIR$/vendor/php-http/discovery" />
@@ -225,7 +222,6 @@
           <root url="file://$MODULE_DIR$/vendor/sebastian/resource-operations" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/type" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/version" />
-          <root url="file://$MODULE_DIR$/vendor/srmklive/paypal" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/console" />
           <root url="file://$MODULE_DIR$/vendor/symfony/css-selector" />
@@ -303,9 +299,6 @@
           <root url="file://$MODULE_DIR$/vendor/omnipay/common" />
           <root url="file://$MODULE_DIR$/vendor/omnipay/paypal" />
           <root url="file://$MODULE_DIR$/vendor/opis/closure" />
-          <root url="file://$MODULE_DIR$/vendor/paypal/paypal-checkout-sdk" />
-          <root url="file://$MODULE_DIR$/vendor/paypal/paypalhttp" />
-          <root url="file://$MODULE_DIR$/vendor/paypal/rest-api-sdk-php" />
           <root url="file://$MODULE_DIR$/vendor/phar-io/manifest" />
           <root url="file://$MODULE_DIR$/vendor/phar-io/version" />
           <root url="file://$MODULE_DIR$/vendor/php-http/discovery" />
@@ -351,7 +344,6 @@
           <root url="file://$MODULE_DIR$/vendor/sebastian/resource-operations" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/type" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/version" />
-          <root url="file://$MODULE_DIR$/vendor/srmklive/paypal" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/console" />
           <root url="file://$MODULE_DIR$/vendor/symfony/css-selector" />
