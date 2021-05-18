@@ -49,6 +49,12 @@ class ProductController extends Controller
 
     public function productWithDetails(){
         return Products::with('phoneInformation')->get();
+
+    }
+
+    public function getProductColors($id){
+        $output =  Products::with('color')->where("id", $id)->get();
+        return $output[0]->color;
     }
 
 }
