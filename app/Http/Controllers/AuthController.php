@@ -27,28 +27,7 @@ class AuthController extends Controller
             return response()->json(["error" => "Unauthorized"], 401);
         }
 
-        //$token = $this->createNewToken($token);
-
-        return response([
-            'message' => 'Success',
-            'user' => $this->userData(auth()->user()),
-            'token' => $token,
-        ]);
-    }
-
-    public function loginMobile(Request $request){
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required|string|min:6',
-        ]);
-
-        if ($validator->fails()){
-            return response()->json($validator->errors(), 422);
-        }
-
-        if (!$token = auth()->attempt($validator->validated())){
-            return response()->json(["error" => "Unauthorized"], 401);
-        }
+        dd("Hello");
 
         return response([
             'message' => 'Success',
