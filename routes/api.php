@@ -29,7 +29,7 @@ Route::get('hello', function () {
 
 Route::group(['prefix' => 'auth'], function(){
     Route::post('/register', [AuthController::class, 'register']);
-    Route::post('/mlogin', [AuthController::class, 'login']);
+    Route::post('/mobile/login', [AuthController::class, 'login']);
     Route::post('/login', [AuthController::class, 'login']);
 
     Route::middleware(["auth.jwt"])->group(function(){
