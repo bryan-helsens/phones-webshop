@@ -16,13 +16,15 @@ class AuthController extends Controller
     public function login(Request $request){
 
         $validator = Validator::make($request->all(), [
+            'name' => 'string',
             'email' => 'required|email',
             'password' => 'required|string|min:6',
+            'password_confirmation' => "string"
         ]);
 
-        /*if ($validator->fails()){
+        if ($validator->fails()){
             return response()->json($validator->errors(), 422);
-        }¨*/
+        }
 
         if (!$token = auth()->attempt($validator->validated())){
             return response()->json(["message" => "Unauthorized"], 401);
