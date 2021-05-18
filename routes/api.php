@@ -29,8 +29,8 @@ Route::get('hello', function () {
 
 Route::group(['prefix' => 'auth'], function(){
     Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/mlogin', [AuthController::class, 'login']);
     Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/mobile_login', [AuthController::class, 'loginMobile']);
 
     Route::middleware(["auth.jwt"])->group(function(){
         Route::post('/token/refresh', [AuthController::class,'refresh']);
