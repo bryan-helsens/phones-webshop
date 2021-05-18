@@ -37,7 +37,7 @@ Route::group(['prefix' => 'auth'], function(){
     });
 });
 
-Route::group(['prefix' => '/mobile/auth'], function(){
+Route::group(['prefix' => 'mobile/auth'], function(){
     Route::post('/login', [AuthController::class, 'loginMobile']);
 
 });
