@@ -22,9 +22,9 @@ class AuthController extends Controller
             'password_confirmation' => "string"
         ]);
 
-        if ($validator->fails()){
+        /*if ($validator->fails()){
             return response()->json($validator->errors(), 422);
-        }
+        }*/
 
         if (!$token = auth()->attempt($validator->validated())){
             return response()->json(["message" => "Unauthorized"], 401);
