@@ -60,6 +60,7 @@ Route::get('/test', function(){
 });
 
 Route::get('products', [ProductController::class, 'all'])->name("all");
+Route::get('details/products', [ProductController::class, 'productWithDetails'])->name("productWithDetails");
 Route::get('products/{filter}', [ProductController::class, 'filterProduct'])->name('filter');
 Route::get('product/{id}', [ProductController::class, 'productByID'])->name("productByID");
 

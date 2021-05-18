@@ -46,4 +46,9 @@ class ProductController extends Controller
 
     }
 
+
+    public function productWithDetails(){
+        return Products::with('phoneInformation')->get();
+    }
+
 }
