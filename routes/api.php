@@ -37,6 +37,11 @@ Route::group(['prefix' => 'auth'], function(){
     });
 });
 
+Route::group(['prefix' => '/mobile/auth'], function(){
+    Route::post('/login', [AuthController::class, 'loginMobile']);
+
+});
+
 
 Route::middleware(["auth.jwt"])->group(function(){
     Route::post('/order', [OrdersController::class, "createOrder"])->name("createOrder");
