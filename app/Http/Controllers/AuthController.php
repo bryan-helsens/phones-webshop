@@ -98,7 +98,7 @@ class AuthController extends Controller
         $name = $user->name;
 
         $userObject = [
-            "user_id" => $id,
+            "id" => $id,
             "email" => $email,
             "name" => $name,
         ];
