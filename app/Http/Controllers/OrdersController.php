@@ -120,6 +120,54 @@ class OrdersController extends Controller
     }
 
 
+    public function createMobileOrder(Request $request){
+        $cartItems = $request["cartItems"];
+        $shipping = $request["shippingData"];
+        $fast_shipping = $request["fast_shipping"];
+
+        $subtotal = 0;
+        $productList = [];
+
+        dd($cartItems);
+
+        /*try{
+            foreach($cartItems as $product){
+                $id = $product["product"]["id"];
+
+                $productByID = Products::where("product_id", $id)->get();
+                $productByID = $productByID[0];
+
+                if ($productByID == null){
+                    $error = "Error: There isn't a product with $id";
+                    return response()->json($error, 500);
+                }
+
+                $qty = (int)$product["qty"];
+
+                if ($qty <= $productByID["stock"]){
+                    array_push($productList, $productByID);
+                    $subtotal += $productByID->price * $qty;
+                }else{
+                    $error = "Error: There are $productByID->stock items in stock";
+                    return response()->json($error, 500);
+                }
+            }
+
+            $subtotal = number_format((float)$subtotal, 2, ".", "");
+            $shipping_price = ($fast_shipping["fast_shipping"]) ? $this->FAST_SHIPPING_PRICE : 0.00;
+            $tax_price = number_format((float)($subtotal * $this->TAX), 2, ".", "");
+            $total_price = $subtotal + $shipping_price + $tax_price;
+
+        }catch(Throwable $e){
+            report($e);
+
+            return false;
+        }*/
+
+
+    }
+
+
     public function orderByID($order_id)
     {
         return Orders::where("order_id", $order_id)->with("product")->get();

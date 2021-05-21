@@ -41,7 +41,7 @@ Route::group(['prefix' => 'auth'], function(){
 
 Route::middleware(["auth.jwt"])->group(function(){
     Route::post('/order', [OrdersController::class, "createOrder"])->name("createOrder");
-
+    Route::post('/mobile/order', [OrdersController::class, "createMobileOrder"])->name("createMobileOrder");
     Route::post('/account', [AccountController::class, "createAccount"])->name("createAccount");
     Route::get('/account', [AccountController::class, "getAccount"])->name("getAccount");
 });
