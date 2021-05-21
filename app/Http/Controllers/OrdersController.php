@@ -21,6 +21,7 @@ class OrdersController extends Controller
 
     public function createOrder(Request $request)
     {
+        dd("hllo");
         $cartItems = $request["cartItems"];
         $shipping = $request["shippingData"];
         $personal = $shipping["personal"];
@@ -121,6 +122,7 @@ class OrdersController extends Controller
 
 
     public function createMobileOrder(Request $request){
+        dd("boe");
         $cartItems = $request["cartItems"];
         $shipping = $request["shippingData"];
         $fast_shipping = $request["fast_shipping"];
