@@ -53,7 +53,7 @@ Route::middleware(["auth.jwt"])->group(function(){
 });
 
 //Route::post('/mobile/account', [AccountController::class, "createAccountMobile"])->name("createAccountMobile");
-//Route::post('/account', [AccountController::class, "createAccount"])->name("createAccount");
+Route::post('/account', [AccountController::class, "createAccount"])->name("createAccount");
 
 
 
