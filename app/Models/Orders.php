@@ -11,7 +11,6 @@ class Orders extends Model
     protected $guarded = [];
 
     protected $hidden = [
-        "id",
         "updated_at",
     ];
 

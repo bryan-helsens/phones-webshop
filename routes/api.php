@@ -32,33 +32,30 @@ Route::group(['prefix' => 'auth'], function(){
     Route::post('/mobile/login', [AuthController::class, 'login']);
     Route::post('/login', [AuthController::class, 'login']);
 
+    Route::post('/mobile/order', [OrdersController::class, "createMobileOrder"])->name("createMobileOrder");
+
+
     Route::middleware(["auth.jwt"])->group(function(){
         Route::post('/token/refresh', [AuthController::class,'refresh']);
         Route::post('/logout', [AuthController::class, 'logout']);
+
+        Route::post('/mobile/account', [AccountController::class, "createAccountMobile"])->name("createAccountMobile");
+        Route::get('/account', [AccountController::class, "getAccount"])->name("getAccount");
+        Route::get('/orders', [OrdersController::class, "getAllOrders"])->name("getAllOrders");
     });
 });
 
 
 Route::middleware(["auth.jwt"])->group(function(){
-    Route::post('/mobile/order', [OrdersController::class, "createMobileOrder"])->name("createMobileOrder");
+    Route::get('/orders', [OrdersController::class, "getAllOrders"])->name("getAllOrders");
     Route::post('/order', [OrdersController::class, "createOrder"])->name("createOrder");
-    Route::post('/account', [AccountController::class, "createAccount"])->name("createAccount");
-    Route::get('/account', [AccountController::class, "getAccount"])->name("getAccount");
+    Route::get('account', [AccountController::class, "getAccount"])->name("getAccount");
 });
 
+//Route::post('/mobile/account', [AccountController::class, "createAccountMobile"])->name("createAccountMobile");
+//Route::post('/account', [AccountController::class, "createAccount"])->name("createAccount");
 
 
-
-Route::middleware(["auth.jwt"])->group(function(){
-    Route::get('/user', [AuthController::class, 'user']);
-    Route::get('/hello', function(){
-        return"world";
-    });
-});
-
-Route::get('/test', function(){
-    return":)";
-});
 
 Route::get('products', [ProductController::class, 'all'])->name("all");
 Route::get('details/products', [ProductController::class, 'productWithDetails'])->name("productWithDetails");
@@ -67,5 +64,5 @@ Route::get('product/{id}', [ProductController::class, 'productByID'])->name("pro
 Route::get('product/colors/{id}', [ProductController::class, 'getProductColors'])->name("productColors");
 
 Route::get('order/{order_id}', [OrdersController::class, "orderByID"])->name("orderByID");
-Route::get('orders', [OrdersController::class, "getAllOrders"])->name("getAllOrders");
+
 

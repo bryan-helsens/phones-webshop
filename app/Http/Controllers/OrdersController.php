@@ -16,12 +16,11 @@ class OrdersController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['orderByID']]);
+        $this->middleware('auth:api', ['except' => [ "createMobileOrder", "orderByID"]]);
     }
 
     public function createOrder(Request $request)
     {
-        dd("hllo");
         $cartItems = $request["cartItems"];
         $shipping = $request["shippingData"];
         $personal = $shipping["personal"];
@@ -122,10 +121,10 @@ class OrdersController extends Controller
 
 
     public function createMobileOrder(Request $request){
-        dd("boe");
         $cartItems = $request["cartItems"];
         $shipping = $request["shippingData"];
         $fast_shipping = $request["fast_shipping"];
+        $user_id = $request["user_id"];
 
         $subtotal = 0;
         $productList = [];
@@ -154,7 +153,7 @@ class OrdersController extends Controller
             }
 
             $subtotal = number_format((float)$subtotal, 2, ".", "");
-            $shipping_price = ($fast_shipping["fast_shipping"]) ? $this->FAST_SHIPPING_PRICE : 0.00;
+            $shipping_price = ($fast_shipping) ? $this->FAST_SHIPPING_PRICE : 0.00;
             $tax_price = number_format((float)($subtotal * $this->TAX), 2, ".", "");
             $total_price = $subtotal + $shipping_price + $tax_price;
 
@@ -164,11 +163,13 @@ class OrdersController extends Controller
             return false;
         }
 
+
         $order = Orders::Create([
             "order_id" => uniqid("ORD."),
             "firstname" => $shipping["firstName"],
             "lastname" => $shipping["lastName"],
             "phone" => $shipping["phone"],
+            "email" => $shipping["email"],
             "email" => $shipping["email"],
 
             "address" => $shipping["street"],
@@ -183,7 +184,7 @@ class OrdersController extends Controller
             "tax_price" => $tax_price,
             "total_price" => $total_price,
 
-            "user_id" => auth()->user()->id,
+            "user_id" => $user_id,
 
             "is_paid" => false,
             "paid_at" => null,
@@ -192,6 +193,31 @@ class OrdersController extends Controller
         ]);
 
 
+        foreach($cartItems as $cartProduct){
+            $id = $cartProduct["product_id"];
+            foreach($productList as $value) if($value['product_id'] == $id) $productFromList = $value;
+
+            $color = $cartProduct["color"];
+            $product_ID = (int)$productFromList["id"];
+            $size = (double)$cartProduct["size"];
+            $price = $productFromList["price"];
+            $qty = (int)$cartProduct["qty"];
+            $subtotal = $price * $qty;
+
+            $product = OrdersProducts::create([
+                "orders_id" => $order["id"],
+                "products_id" => $product_ID,
+                "color" => $color,
+                "size" => $size,
+                "qty" => $qty,
+                "price" => $price,
+                "total_price" => $subtotal,
+            ]);
+
+        }
+
+
+        return response()->json($order["order_id"], 200);
 
 
     }

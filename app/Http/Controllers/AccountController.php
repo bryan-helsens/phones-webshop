@@ -41,6 +41,30 @@ class AccountController extends Controller
         }
     }
 
+    public function createAccountMobile(Request $request){
+
+        try{
+
+            $personal = $request;
+
+            $account = auth()->user()->account;
+
+            if (empty($account)){
+                $this->createNewAccountMobile($personal);
+            }else{
+                $this->updateAccountMobile($personal);
+            }
+
+            return response()->json(["message" => $account], 200);
+
+
+        }catch(Throwable $e){
+            report($e);
+            $error = "Error: Something wen't wrong";
+            return response()->json(["message" => $error], 500);
+        }
+    }
+
 
     public function createNewAccount($personal, $address){
         $account = Account::Create([
@@ -53,6 +77,22 @@ class AccountController extends Controller
             "city" => $address["city"],
             "country" => $address["country"],
             "zipcode" => (int)$address["zip"],
+
+            "user_id" => auth()->user()->id,
+        ]);
+    }
+
+    public function createNewAccountMobile($personal){
+        $account = Account::Create([
+            "firstname" => $personal["firstname"],
+            "lastname" => $personal["lastname"],
+            "phone" => $personal["phone"],
+            "email" => $personal["email"],
+
+            "address" => $personal["address"],
+            "city" => $personal["city"],
+            "country" => $personal["country"],
+            "zipcode" => (int)$personal["zipcode"],
 
             "user_id" => auth()->user()->id,
         ]);
@@ -74,17 +114,32 @@ class AccountController extends Controller
         ]);
     }
 
+    public function updateAccountMobile($personal){
+        $account = Account::where('user_id', auth()->user()->id)->update([
+            "firstname" => $personal["firstname"],
+            "lastname" => $personal["lastname"],
+            "phone" => $personal["phone"],
+            "email" => $personal["email"],
+
+            "address" => $personal["address"],
+            "city" => $personal["city"],
+            "country" => $personal["country"],
+            "zipcode" => (int)$personal["zipcode"],
+
+            "user_id" => auth()->user()->id,
+        ]);
+    }
+
     public function getAccount()
     {
        try{
            $account = auth()->user()->account;
 
            if (empty($account)){
-               $account = false;
                return response()->json($account, 200);
            }
 
-           return response()->json($account, 200);
+           return response()->json([$account], 200);
 
        }catch (Throwable $e){
            if ($e instanceof TokenInvalidException) {
