@@ -128,11 +128,9 @@ class OrdersController extends Controller
         $subtotal = 0;
         $productList = [];
 
-        dd($cartItems);
-
-        /*try{
+        try{
             foreach($cartItems as $product){
-                $id = $product["product"]["id"];
+                $id = $product["product_id"];
 
                 $productByID = Products::where("product_id", $id)->get();
                 $productByID = $productByID[0];
@@ -162,7 +160,36 @@ class OrdersController extends Controller
             report($e);
 
             return false;
-        }*/
+        }
+
+        $order = Orders::Create([
+            "order_id" => uniqid("ORD."),
+            "firstname" => $shipping["firstName"],
+            "lastname" => $shipping["lastName"],
+            "phone" => $shipping["phone"],
+            "email" => $shipping["email"],
+
+            "address" => $shipping["street"],
+            "city" => $shipping["city"],
+            "country" => $shipping["country"],
+            "zipcode" => $shipping["zip"],
+
+            "payment_method" => "Online",
+
+            "subtotal" => $subtotal,
+            "shipping_price" => $shipping_price,
+            "tax_price" => $tax_price,
+            "total_price" => $total_price,
+
+            "user_id" => auth()->user()->id,
+
+            "is_paid" => false,
+            "paid_at" => null,
+            "is_delivered" => false,
+            "delivered_at" => null,
+        ]);
+
+
 
 
     }
