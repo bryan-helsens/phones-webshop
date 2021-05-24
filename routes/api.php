@@ -57,6 +57,7 @@ Route::post('/account', [AccountController::class, "createAccount"])->name("crea
 
 
 
+
 Route::get('products', [ProductController::class, 'all'])->name("all");
 Route::get('details/products', [ProductController::class, 'productWithDetails'])->name("productWithDetails");
 Route::get('products/{filter}', [ProductController::class, 'filterProduct'])->name('filter');

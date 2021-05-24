@@ -111,9 +111,6 @@
       <path value="$PROJECT_DIR$/vendor/srmklive/paypal" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
       <path value="$PROJECT_DIR$/vendor/haruncpi/laravel-id-generator" />
-      <path value="$PROJECT_DIR$/vendor/paypal/paypalhttp" />
-      <path value="$PROJECT_DIR$/vendor/paypal/paypal-checkout-sdk" />
-      <path value="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php" />
       <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
     </include_path>
   </component>

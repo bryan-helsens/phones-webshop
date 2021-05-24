@@ -136,6 +136,7 @@ class AccountController extends Controller
            $account = auth()->user()->account;
 
            if (empty($account)){
+               $account = false;
                return response()->json($account, 200);
            }
 
