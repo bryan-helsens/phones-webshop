@@ -63,7 +63,7 @@ Route::get('details/products', [ProductController::class, 'productWithDetails'])
 Route::get('products/{filter}', [ProductController::class, 'filterProduct'])->name('filter');
 Route::get('product/{id}', [ProductController::class, 'productByID'])->name("productByID");
 Route::get('product/colors/{id}', [ProductController::class, 'getProductColors'])->name("productColors");
-
+Route::get('/orders', [OrdersController::class, "getAllOrders"])->name("getAllOrders");
 Route::get('order/{order_id}', [OrdersController::class, "orderByID"])->name("orderByID");
 
 
